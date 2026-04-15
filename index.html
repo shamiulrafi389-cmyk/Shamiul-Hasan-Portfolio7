@@ -3,158 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shamiul Hasan | Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Shamiul Hasan | Advanced Portfolio</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* CSS Section - Eitao HTML file-er bhetorei thakbe */
         :root {
-            --bg-dark: #0f172a;
-            --card-bg: #1e293b;
-            --accent-cyan: #22d3ee;
-            --text-white: #f8fafc;
-            --text-gray: #94a3b8;
+            --bg: #0b1120;
+            --card: #1e293b;
+            --accent: #22d3ee;
+            --text: #f8fafc;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--bg-dark); color: var(--text-white); line-height: 1.6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+        body { background-color: var(--bg); color: var(--text); overflow-x: hidden; }
 
-        /* Header Section */
-        header { text-align: center; padding: 80px 20px; background: linear-gradient(180deg, #111827 0%, #0f172a 100%); }
-        .profile-name { font-size: 36px; font-weight: bold; margin-bottom: 5px; }
-        .profile-title { color: var(--accent-cyan); font-size: 20px; margin-bottom: 25px; }
-        
-        .btn-download {
-            background-color: var(--accent-cyan);
-            color: #0f172a;
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-            display: inline-block;
+        /* Smooth Background Animation */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0b1120 100%);
+            z-index: -1;
         }
-        .btn-download:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(34, 211, 238, 0.4); }
 
-        /* Sections */
-        .container { max-width: 1000px; margin: 0 auto; padding: 50px 20px; }
-        h2 { font-size: 28px; margin-bottom: 30px; border-left: 4px solid var(--accent-cyan); padding-left: 15px; }
+        header { text-align: center; padding: 100px 20px; }
+        .hero-title { font-size: 3rem; font-weight: 800; margin-bottom: 10px; animation: fadeInUp 1s ease; }
+        .hero-sub { color: var(--accent); font-size: 1.2rem; margin-bottom: 30px; animation: fadeInUp 1.2s ease; }
 
-        /* Skills Grid */
-        .skills-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-            gap: 15px; 
-            margin-bottom: 50px;
+        /* Animation Keyframes */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .skill-item {
-            background-color: var(--card-bg);
-            padding: 15px;
-            border-radius: 10px;
+
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+
+        /* List Style Skills with Animation */
+        .skill-list-item {
+            background: var(--card);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: 0.3s;
-        }
-        .skill-item:hover { border-color: var(--accent-cyan); background: #262f3f; }
-        .skill-item i { color: var(--accent-cyan); width: 20px; text-align: center; }
-
-        /* Programming Section */
-        .coding-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            margin-bottom: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
         }
-        .code-card {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid rgba(34, 211, 238, 0.2);
-        }
-        .code-card i { font-size: 40px; margin-bottom: 15px; color: #fbbf24; }
 
-        /* Project & Contact */
-        .box { background: var(--card-bg); padding: 30px; border-radius: 15px; margin-bottom: 20px; }
-        .contact-info { display: flex; flex-direction: column; gap: 10px; }
-        .contact-info a { color: var(--accent-cyan); text-decoration: none; }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .coding-grid { grid-template-columns: 1fr; }
-            .profile-name { font-size: 28px; }
+        .skill-list-item:hover {
+            transform: scale(1.03);
+            background: #262f3f;
+            border-color: var(--accent);
+            box-shadow: 0 10px 20px rgba(34, 211, 238, 0.15);
         }
+
+        .skill-list-item i { color: var(--accent); font-size: 1.5rem; transition: 0.3s; }
+        .skill-list-item:hover i { transform: rotate(360deg); }
+
+        /* Section Headings with Border Animation */
+        .section-title {
+            font-size: 2rem; margin: 60px 0 30px; position: relative; display: inline-block;
+        }
+        .section-title::after {
+            content: ""; position: absolute; bottom: -5px; left: 0; width: 0; height: 3px;
+            background: var(--accent); transition: 0.5s;
+        }
+        .skill-list-item:hover ~ .section-title::after, .section-title:hover::after { width: 100%; }
+
+        /* Download Button Animation */
+        .btn-download {
+            background: var(--accent); color: var(--bg); padding: 15px 35px; border-radius: 50px;
+            text-decoration: none; font-weight: bold; display: inline-block; transition: 0.4s;
+            box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
+        }
+        .btn-download:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(34, 211, 238, 0.5); }
+
+        /* Project Card Animation */
+        .project-card {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            padding: 30px; border-radius: 20px; border: 1px solid rgba(34, 211, 238, 0.2);
+            position: relative; overflow: hidden;
+        }
+        .project-card::before {
+            content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.1) 0%, transparent 70%);
+            transition: 0.5s;
+        }
+        .project-card:hover::before { top: -20%; left: -20%; }
+
     </style>
 </head>
 <body>
 
     <header>
-        <div class="profile-name">Shamiul Hasan</div>
-        <div class="profile-title">Electrical Engineering Student</div>
+        <h1 class="hero-title">Shamiul Hasan</h1>
+        <p class="hero-sub">Electrical Engineering Student & Developer</p>
         <a href="Samiul_Hasan_CV.pdf" class="btn-download" download>
-            <i class="fas fa-download"></i> Download CV
+            <i class="fas fa-file-download"></i> Download My CV
         </a>
     </header>
 
     <div class="container">
         
-        <h2>Programming Skills</h2>
-        <div class="coding-grid">
-            <div class="code-card">
-                <i class="fab fa-python" style="color: #3776ab;"></i>
-                <h3>Python</h3>
-                <p>Automation & Scripts</p>
-            </div>
-            <div class="code-card">
-                <i class="fab fa-java" style="color: #f89820;"></i>
-                <h3>Java</h3>
-                <p>Software Development</p>
-            </div>
-            <div class="code-card">
-                <i class="fas fa-code" style="color: #00599c;"></i>
-                <h3>C++</h3>
-                <p>Logic & Algorithms</p>
-            </div>
+        <h2 class="section-title" data-aos="fade-right">Technical Skills</h2>
+
+        <div class="skill-list-item" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-microchip"></i> <span>Electrical Panel Design</span>
+        </div>
+        <div class="skill-list-item" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-calculator"></i> <span>Load Calculation</span>
+        </div>
+        <div class="skill-list-item" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-shield-alt"></i> <span>Circuit Protection</span>
+        </div>
+        <div class="skill-list-item" data-aos="fade-up" data-aos-delay="400">
+            <i class="fas fa-solar-panel"></i> <span>Solar PV Systems</span>
+        </div>
+        <div class="skill-list-item" data-aos="fade-up" data-aos-delay="500">
+            <i class="fas fa-video"></i> <span>CCTV System Design</span>
+        </div>
+        <div class="skill-list-item" data-aos="fade-up" data-aos-delay="600">
+            <i class="fas fa-network-wired"></i> <span>Structured Cabling</span>
+        </div>
+        <div class="skill-list-item" data-aos="fade-up" data-aos-delay="700">
+            <i class="fas fa-tools"></i> <span>Testing & Commissioning</span>
+        </div>
+        <div class="skill-list-item" data-aos="fade-up" data-aos-delay="800">
+            <i class="fas fa-hard-hat"></i> <span>Electrical Safety</span>
         </div>
 
-        <h2>Technical Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-item"><i class="fas fa-bolt"></i> Electrical Wiring</div>
-            <div class="skill-item"><i class="fas fa-industry"></i> Industrial Motor Control</div>
-            <div class="skill-item"><i class="fas fa-microchip"></i> Electrical Panel Design</div>
-            <div class="skill-item"><i class="fas fa-calculator"></i> Load Calculation</div>
-            <div class="skill-item"><i class="fas fa-shield-alt"></i> Circuit Protection</div>
-            <div class="skill-item"><i class="fas fa-solar-panel"></i> Solar PV Systems</div>
-            <div class="skill-item"><i class="fas fa-video"></i> CCTV System Design</div>
-            <div class="skill-item"><i class="fas fa-network-wired"></i> Structured Cabling</div>
-            <div class="skill-item"><i class="fas fa-tools"></i> Testing & Commissioning</div>
-            <div class="skill-item"><i class="fas fa-hard-hat"></i> Electrical Safety</div>
-        </div>
-
-        <h2>Project</h2>
-        <div class="box">
-            <h3 style="color: var(--accent-cyan);">IoT-Based Energy Monitoring System</h3>
-            <p style="color: var(--text-gray); margin-top: 10px;">
-                Designed a system to monitor electrical parameters in real-time using IoT sensors and dashboard.
+        <h2 class="section-title" data-aos="fade-right">Featured Project</h2>
+        <div class="project-card" data-aos="zoom-in">
+            <h3 style="color: var(--accent); font-size: 1.5rem;">IoT-Based Energy Monitoring</h3>
+            <p style="margin-top: 15px; color: #94a3b8;">
+                Advanced real-time energy tracking system with cloud dashboard integration.
             </p>
         </div>
 
-        <h2>Contact</h2>
-        <div class="box">
-            <div class="contact-info">
-                <p><i class="fas fa-phone" style="margin-right: 10px;"></i> +8801805995822</p>
-                <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> <a href="mailto:shamiulrafi389@icloud.com">shamiulrafi389@icloud.com</a></p>
-                <p><i class="fab fa-github" style="margin-right: 10px;"></i> <a href="https://github.com/9-cmyk">github.com/9-cmyk</a></p>
-            </div>
+        <h2 class="section-title" data-aos="fade-right">Contact</h2>
+        <div style="margin-bottom: 100px;" data-aos="fade-up">
+            <p><i class="fas fa-phone" style="color:var(--accent)"></i> +8801805995822</p>
+            <p><i class="fas fa-envelope" style="color:var(--accent)"></i> shamiulrafi389@icloud.com</p>
         </div>
-
     </div>
 
-    <footer style="text-align: center; padding: 40px; color: var(--text-gray); font-size: 14px;">
-        &copy; 2026 Shamiul Hasan | Built with HTML & CSS
-    </footer>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800, // Animation speed
+            once: true,    // Whether animation should happen only once
+        });
+    </script>
 </body>
 </html>
