@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shamiul Hasan | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS Section - Eitao HTML file-er bhetorei thakbe */
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --accent-cyan: #22d3ee;
+            --text-white: #f8fafc;
+            --text-gray: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-white); line-height: 1.6; }
+
+        /* Header Section */
+        header { text-align: center; padding: 80px 20px; background: linear-gradient(180deg, #111827 0%, #0f172a 100%); }
+        .profile-name { font-size: 36px; font-weight: bold; margin-bottom: 5px; }
+        .profile-title { color: var(--accent-cyan); font-size: 20px; margin-bottom: 25px; }
+        
+        .btn-download {
+            background-color: var(--accent-cyan);
+            color: #0f172a;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn-download:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(34, 211, 238, 0.4); }
+
+        /* Sections */
+        .container { max-width: 1000px; margin: 0 auto; padding: 50px 20px; }
+        h2 { font-size: 28px; margin-bottom: 30px; border-left: 4px solid var(--accent-cyan); padding-left: 15px; }
+
+        /* Skills Grid */
+        .skills-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+            gap: 15px; 
+            margin-bottom: 50px;
+        }
+        .skill-item {
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+        }
+        .skill-item:hover { border-color: var(--accent-cyan); background: #262f3f; }
+        .skill-item i { color: var(--accent-cyan); width: 20px; text-align: center; }
+
+        /* Programming Section */
+        .coding-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        .code-card {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(34, 211, 238, 0.2);
+        }
+        .code-card i { font-size: 40px; margin-bottom: 15px; color: #fbbf24; }
+
+        /* Project & Contact */
+        .box { background: var(--card-bg); padding: 30px; border-radius: 15px; margin-bottom: 20px; }
+        .contact-info { display: flex; flex-direction: column; gap: 10px; }
+        .contact-info a { color: var(--accent-cyan); text-decoration: none; }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .coding-grid { grid-template-columns: 1fr; }
+            .profile-name { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="profile-name">Shamiul Hasan</div>
+        <div class="profile-title">Electrical Engineering Student</div>
+        <a href="Samiul_Hasan_CV.pdf" class="btn-download" download>
+            <i class="fas fa-download"></i> Download CV
+        </a>
+    </header>
+
+    <div class="container">
+        
+        <h2>Programming Skills</h2>
+        <div class="coding-grid">
+            <div class="code-card">
+                <i class="fab fa-python" style="color: #3776ab;"></i>
+                <h3>Python</h3>
+                <p>Automation & Scripts</p>
+            </div>
+            <div class="code-card">
+                <i class="fab fa-java" style="color: #f89820;"></i>
+                <h3>Java</h3>
+                <p>Software Development</p>
+            </div>
+            <div class="code-card">
+                <i class="fas fa-code" style="color: #00599c;"></i>
+                <h3>C++</h3>
+                <p>Logic & Algorithms</p>
+            </div>
+        </div>
+
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item"><i class="fas fa-bolt"></i> Electrical Wiring</div>
+            <div class="skill-item"><i class="fas fa-industry"></i> Industrial Motor Control</div>
+            <div class="skill-item"><i class="fas fa-microchip"></i> Electrical Panel Design</div>
+            <div class="skill-item"><i class="fas fa-calculator"></i> Load Calculation</div>
+            <div class="skill-item"><i class="fas fa-shield-alt"></i> Circuit Protection</div>
+            <div class="skill-item"><i class="fas fa-solar-panel"></i> Solar PV Systems</div>
+            <div class="skill-item"><i class="fas fa-video"></i> CCTV System Design</div>
+            <div class="skill-item"><i class="fas fa-network-wired"></i> Structured Cabling</div>
+            <div class="skill-item"><i class="fas fa-tools"></i> Testing & Commissioning</div>
+            <div class="skill-item"><i class="fas fa-hard-hat"></i> Electrical Safety</div>
+        </div>
+
+        <h2>Project</h2>
+        <div class="box">
+            <h3 style="color: var(--accent-cyan);">IoT-Based Energy Monitoring System</h3>
+            <p style="color: var(--text-gray); margin-top: 10px;">
+                Designed a system to monitor electrical parameters in real-time using IoT sensors and dashboard.
+            </p>
+        </div>
+
+        <h2>Contact</h2>
+        <div class="box">
+            <div class="contact-info">
+                <p><i class="fas fa-phone" style="margin-right: 10px;"></i> +8801805995822</p>
+                <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> <a href="mailto:shamiulrafi389@icloud.com">shamiulrafi389@icloud.com</a></p>
+                <p><i class="fab fa-github" style="margin-right: 10px;"></i> <a href="https://github.com/9-cmyk">github.com/9-cmyk</a></p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer style="text-align: center; padding: 40px; color: var(--text-gray); font-size: 14px;">
+        &copy; 2026 Shamiul Hasan | Built with HTML & CSS
+    </footer>
+
+</body>
+</html>
