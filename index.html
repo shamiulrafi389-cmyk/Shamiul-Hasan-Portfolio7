@@ -12,12 +12,12 @@
             --card: #1e293b;
             --accent: #22d3ee;
             --text: #f8fafc;
+            --linkedin: #0077b5;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
-        body { background-color: var(--bg); color: var(--text); overflow-x: hidden; }
+        body { background-color: var(--bg); color: var(--text); overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* Smooth Background Animation */
         body::before {
             content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0b1120 100%);
@@ -28,7 +28,6 @@
         .hero-title { font-size: 3rem; font-weight: 800; margin-bottom: 10px; animation: fadeInUp 1s ease; }
         .hero-sub { color: var(--accent); font-size: 1.2rem; margin-bottom: 30px; animation: fadeInUp 1.2s ease; }
 
-        /* Animation Keyframes */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -36,61 +35,44 @@
 
         .container { max-width: 800px; margin: 0 auto; padding: 20px; }
 
-        /* List Style Skills with Animation */
-        .skill-list-item {
-            background: var(--card);
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
+        /* Social Link Styling */
+        .social-links { margin-bottom: 30px; animation: fadeInUp 1.4s ease; }
+        .social-btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 50px; height: 50px; background: var(--card); color: var(--text);
+            border-radius: 50%; text-decoration: none; margin: 0 10px;
+            transition: 0.3s; border: 1px solid rgba(255, 255, 255, 0.1);
         }
+        .social-btn.linkedin:hover { background: var(--linkedin); color: white; transform: translateY(-5px); border-color: var(--linkedin); }
 
+        /* Skill List Items */
+        .skill-list-item {
+            background: var(--card); padding: 20px; margin-bottom: 15px; border-radius: 12px;
+            display: flex; align-items: center; gap: 20px; border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
         .skill-list-item:hover {
-            transform: scale(1.03);
-            background: #262f3f;
-            border-color: var(--accent);
+            transform: scale(1.03); background: #262f3f; border-color: var(--accent);
             box-shadow: 0 10px 20px rgba(34, 211, 238, 0.15);
         }
+        .skill-list-item i { color: var(--accent); font-size: 1.5rem; }
 
-        .skill-list-item i { color: var(--accent); font-size: 1.5rem; transition: 0.3s; }
-        .skill-list-item:hover i { transform: rotate(360deg); }
+        .section-title { font-size: 2rem; margin: 60px 0 30px; border-left: 4px solid var(--accent); padding-left: 15px; }
 
-        /* Section Headings with Border Animation */
-        .section-title {
-            font-size: 2rem; margin: 60px 0 30px; position: relative; display: inline-block;
-        }
-        .section-title::after {
-            content: ""; position: absolute; bottom: -5px; left: 0; width: 0; height: 3px;
-            background: var(--accent); transition: 0.5s;
-        }
-        .skill-list-item:hover ~ .section-title::after, .section-title:hover::after { width: 100%; }
-
-        /* Download Button Animation */
         .btn-download {
             background: var(--accent); color: var(--bg); padding: 15px 35px; border-radius: 50px;
             text-decoration: none; font-weight: bold; display: inline-block; transition: 0.4s;
-            box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
+            box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3); margin-top: 10px;
         }
         .btn-download:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(34, 211, 238, 0.5); }
 
-        /* Project Card Animation */
         .project-card {
             background: linear-gradient(145deg, #1e293b, #0f172a);
             padding: 30px; border-radius: 20px; border: 1px solid rgba(34, 211, 238, 0.2);
-            position: relative; overflow: hidden;
         }
-        .project-card::before {
-            content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(34, 211, 238, 0.1) 0%, transparent 70%);
-            transition: 0.5s;
-        }
-        .project-card:hover::before { top: -20%; left: -20%; }
 
+        footer { text-align: center; padding: 60px 20px; background: #070b14; margin-top: 50px; }
+        footer p { color: #64748b; margin-top: 15px; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -98,6 +80,16 @@
     <header>
         <h1 class="hero-title">Shamiul Hasan</h1>
         <p class="hero-sub">Electrical Engineering Student & Developer</p>
+        
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/shamiul-hasan-86a4623a8?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" class="social-btn linkedin">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/9-cmyk" target="_blank" class="social-btn">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+
         <a href="Samiul_Hasan_CV.pdf" class="btn-download" download>
             <i class="fas fa-file-download"></i> Download My CV
         </a>
@@ -125,34 +117,37 @@
         <div class="skill-list-item" data-aos="fade-up" data-aos-delay="600">
             <i class="fas fa-network-wired"></i> <span>Structured Cabling</span>
         </div>
-        <div class="skill-list-item" data-aos="fade-up" data-aos-delay="700">
-            <i class="fas fa-tools"></i> <span>Testing & Commissioning</span>
-        </div>
-        <div class="skill-list-item" data-aos="fade-up" data-aos-delay="800">
-            <i class="fas fa-hard-hat"></i> <span>Electrical Safety</span>
-        </div>
 
         <h2 class="section-title" data-aos="fade-right">Featured Project</h2>
         <div class="project-card" data-aos="zoom-in">
-            <h3 style="color: var(--accent); font-size: 1.5rem;">IoT-Based Energy Monitoring</h3>
+            <h3 style="color: var(--accent);">IoT-Based Energy Monitoring</h3>
             <p style="margin-top: 15px; color: #94a3b8;">
-                Advanced real-time energy tracking system with cloud dashboard integration.
+                Real-time power parameter monitoring system with advanced dashboard.
             </p>
         </div>
 
         <h2 class="section-title" data-aos="fade-right">Contact</h2>
-        <div style="margin-bottom: 100px;" data-aos="fade-up">
-            <p><i class="fas fa-phone" style="color:var(--accent)"></i> +8801805995822</p>
-            <p><i class="fas fa-envelope" style="color:var(--accent)"></i> shamiulrafi389@icloud.com</p>
+        <div data-aos="fade-up">
+            <p style="margin-bottom: 10px;"><i class="fas fa-phone" style="color:var(--accent); width: 25px;"></i> +8801805995822</p>
+            <p><i class="fas fa-envelope" style="color:var(--accent); width: 25px;"></i> shamiulrafi389@icloud.com</p>
         </div>
     </div>
 
+    <footer>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/shamiul-hasan-86a4623a8?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" class="social-btn linkedin">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/9-cmyk" target="_blank" class="social-btn">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        <p>&copy; 2026 Shamiul Hasan. Dynamic Engineering Portfolio.</p>
+    </footer>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 800, // Animation speed
-            once: true,    // Whether animation should happen only once
-        });
+        AOS.init({ duration: 800, once: true });
     </script>
 </body>
 </html>
