@@ -151,6 +151,60 @@
             0% { background-position: 0% 0%; }
             100% { background-position: 100% 100%; }
         }
+        /* 1. Floating Animation (Standard + Webkit for Safari) */
+        @-webkit-keyframes float {
+            0% { -webkit-transform: translateY(0px); transform: translateY(0px); }
+            50% { -webkit-transform: translateY(-15px); transform: translateY(-15px); }
+            100% { -webkit-transform: translateY(0px); transform: translateY(0px); }
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .social-btn {
+            -webkit-animation: float 3s ease-in-out infinite;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* 2. Shimmer Animation (Safari Friendly) */
+        @-webkit-keyframes shine {
+            to { background-position: 200% center; }
+        }
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+        .hero h1 {
+            background: linear-gradient(90deg, #22d3ee, #ffffff, #22d3ee);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+            -webkit-animation: shine 4s linear infinite;
+        }
+
+        /* 3. 3D Icon Spin (Cross-browser Support) */
+        .skill-group:hover h3 i {
+            -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+            transition: -webkit-transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* 4. Background Move (Fix for Safari) */
+        @-webkit-keyframes bgMove {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+        @keyframes bgMove {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+        body::before {
+            -webkit-animation: bgMove 20s linear infinite;
+            animation: bgMove 20s linear infinite;
+        }
 
     </style>
 </head>
