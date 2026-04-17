@@ -72,6 +72,85 @@
             box-shadow: 0 0 20px var(--accent);
             border-color: var(--accent);
         }
+        /* 1. Floating Animation for the Hero Section Icons */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .social-btn {
+            animation: float 3s ease-in-out infinite;
+        }
+        .social-btn:nth-child(2) {
+            animation-delay: 1.5s;
+        }
+
+        /* 2. Text Gradient Shimmer Animation for Name */
+        .hero h1 {
+            background: linear-gradient(90deg, #22d3ee, #ffffff, #22d3ee);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+        }
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        /* 3. Skill Cards Glow and Pulse on Hover */
+        .skill-group {
+            position: relative;
+            overflow: hidden;
+        }
+        .skill-group::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .skill-group:hover::after {
+            opacity: 1;
+        }
+
+        /* 4. Smooth Rotation for Icons when Hovering */
+        .skill-group:hover h3 i {
+            transform: rotateY(360deg);
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            color: #ffffff;
+        }
+
+        /* 5. Section Title Border Animation */
+        .section-title {
+            position: relative;
+        }
+        .section-title::before {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+            transition: width 0.4s ease;
+        }
+        .section-title:hover::before {
+            width: 150px;
+        }
+
+        /* 6. Subtle Page Background Movement */
+        body::before {
+            animation: bgMove 20s linear infinite;
+        }
+        @keyframes bgMove {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
 
     </style>
 </head>
